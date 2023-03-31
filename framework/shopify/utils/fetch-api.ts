@@ -1,11 +1,14 @@
 const storeName = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN 
 const apiKey = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN
 
-type FetchParams = { 
+type FetcherParams = { 
     query: string
 }
 
-const fetchApi = async ({ query }: FetchParams) => {
+type FetcherResult<T> = {data: T}
+
+const fetchApi = async <T>({ query 
+}: FetcherParams): Promise<FetcherResult<T>> => {
     const url = storeName
 
    const res = await fetch(url, {
