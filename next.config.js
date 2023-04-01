@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 
-module.exports = nextConfig
+const { withFrameworkConfig } = require("./framework/common/config");
+
+const nextConfig = withFrameworkConfig({
+  framework: {
+    name: "shopify",
+  },
+  reactStrictMode: true,
+});
+
+module.exports = nextConfig;
