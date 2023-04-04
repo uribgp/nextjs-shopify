@@ -1,3 +1,27 @@
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+import { AppProps } from "next/app";
+import { FC, ReactNode } from "react";
+
+interface LayoutProps {
+  children: ReactNode;
 }
+
+const Noop: FC<LayoutProps> = ({ children }) => <>{children}</>;
+
+interface ComponentWithLayout extends React.FunctionComponent {
+  Layout: FC<LayoutProps>;
+}
+
+function MyApp({
+  Component,
+  pageProps,
+}: AppProps & { Component: ComponentWithLayout }) {
+  const Layout = Component.Layout ?? Noop;
+
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
+}
+
+export default MyApp;

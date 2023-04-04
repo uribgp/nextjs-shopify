@@ -1,6 +1,19 @@
 import type { InferGetStaticPropsType } from "next";
-import getAllProducts from "@framework/product/get-all-products";
+import getAllproducts from "@framework/product/get-all-products";
 import { getConfig } from "@framework/api/config";
+import { Layout } from "@components/common";
+
+export async function getStaticProps() {
+  const config = getConfig();
+  const products = await getAllproducts(config);
+
+  return {
+    props: {
+      products,
+    },
+    revalidate: 4 * 60 * 60,
+  };
+}
 
 export default function Home({
   products,
@@ -8,13 +21,4 @@ export default function Home({
   return <div>{JSON.stringify(products)}</div>;
 }
 
-export async function getStaticProps() {
-  const config = getConfig();
-  const products = await getAllProducts(config);
-  return {
-    props: { products },
-
-    // Revalidate searches for new products every 4 hours
-    revalidate: 4 * 60 * 60,
-  };
-}
+Home.Layout = Layout;
