@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "build:css": "postcss assets/main.css -o assets/main_browser.css",
     "lint": "next lint"
   },
   "dependencies": {
@@ -18,8 +19,12 @@
   "devDependencies": {
     "@types/node": "18.15.11",
     "@types/react": "^18.0.31",
+    "autoprefixer": "^10.4.14",
     "deepmerge": "^4.3.1",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
     "prettier": "^2.8.7",
+    "tailwindcss": "^3.3.1",
     "typescript": "^5.0.2"
   }
 }

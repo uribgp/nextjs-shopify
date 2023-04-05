@@ -1,5 +1,6 @@
 import { AppProps } from "next/app";
 import { FC, ReactNode } from "react";
+import "@assets/main.css";
 
 interface LayoutProps {
   children: ReactNode;
