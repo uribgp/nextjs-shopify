@@ -7,9 +7,9 @@ type LayoutProps = {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <>
-      <main className={style.root}>{children}</main>
-    </>
+    <div className={style.root}>
+      <main className='fit'>{children}</main>
+    </div>
   );
 };
 
