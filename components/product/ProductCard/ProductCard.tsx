@@ -20,9 +20,10 @@ const ProductCard: FC<Props> = ({ product }) => {
         {product.images && (
           <Image
             alt={product.name ?? "Product Image"}
-            src={placeholderImage}
+            src={product.images[0].url ?? placeholderImage}
             quality='85'
-            fill
+            height={540}
+            width={540}
           />
         )}
       </div>

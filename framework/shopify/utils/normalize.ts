@@ -4,7 +4,7 @@ import { Product } from "@common/types/product";
 function normalizeProductImages({edges}: {edges: Array<ImageEdge>}){
     return edges.map(({node: {originalSrc: url, ...rest}}) => {
         return {
-            url: `/images/${url}`,
+            url: `${url}`,
             ...rest
         }
     })
