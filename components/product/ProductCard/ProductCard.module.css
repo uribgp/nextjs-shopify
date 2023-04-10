@@ -47,6 +47,12 @@
 
 .productBackground {
     @apply absolute inset-0 z-0;
+
+    &:before {
+        @apply block w-full h-full;
+        content: "";
+        background-image: url("/product-pattern-bg.svg")
+    }
   }
   
   .productImageContainer {
