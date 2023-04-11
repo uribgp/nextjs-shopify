@@ -32,7 +32,9 @@
     }
 }
 
-.productImage {}
+.productImage {
+    @apply transition-transform duration-500;
+}
 
 .productTag {
     @apply absolute top-0 left-0 z-20;
@@ -48,7 +50,7 @@
     line-height: 2.2rem;
 
     & span {
-        @apply py-4 px-6;
+        @apply py-4 px-6 bg-primary;
         box-decoration-break: clone;
     }
 }
@@ -61,7 +63,7 @@
     @apply absolute inset-0 z-0;
 
     &:before {
-        @apply block w-full h-full;
+        @apply block w-full h-full transition-transform duration-500;
         content: "";
         background-image: url("/product-pattern-bg.svg")
     }
