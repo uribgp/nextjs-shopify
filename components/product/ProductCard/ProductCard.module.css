@@ -1,5 +1,6 @@
 .root {
-    @apply relative max-h-full;
+    @apply relative max-h-full flex items-center justify-center;
+    max-height: 100% !important;
 
     &:hover {
         & .productBackground:before {
@@ -56,7 +57,12 @@
 }
 
 .productPrice {
-    @apply pb-4 pt-2 px-6 text-primary;
+    @apply pb-4 pt-2 px-6 text-primary bg-primary;
+
+    & span {
+        @apply py-4 px-6 bg-primary;
+        box-decoration-break: clone;
+    }
 }
 
 .productBackground {
