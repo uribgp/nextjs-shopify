@@ -1,5 +1,15 @@
 .root {
-    @apply relative;
+    @apply relative max-h-full;
+
+    &:hover {
+        & .productBackground:before {
+            transform: scale(0.98);
+        }
+
+    & .productImage {
+        transform: scale(1.15);
+    }
+    }
 
     &:nth-child(6n + 1) .productBackground {
         @apply bg-violet;
@@ -21,6 +31,8 @@
         @apply bg-blue;
     }
 }
+
+.productImage {}
 
 .productTag {
     @apply absolute top-0 left-0 z-20;

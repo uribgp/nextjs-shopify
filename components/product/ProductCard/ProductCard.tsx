@@ -21,6 +21,7 @@ const ProductCard: FC<Props> = ({ product }) => {
       {product.images && (
         <div className={style.productImageContainer}>
           <Image
+            className={style.productImage}
             alt={product.name ?? "Product Image"}
             src={product.images[0].url ?? placeholderImage}
             quality='85'
