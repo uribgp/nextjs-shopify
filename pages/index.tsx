@@ -18,7 +18,7 @@ export default function Home({
       <Hero headline='Hello' description='description' />
       <Marquee>
         {products.slice(0, 3).map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} variant='slim' product={product} />
         ))}
       </Marquee>
     </div>

@@ -80,3 +80,9 @@
     width: 540px;
     height: 540px;
   }
+
+  .productImageContainerSlim {
+    @apply z-10 relative;
+    width: 320px;
+    height: 320px;
+  }
