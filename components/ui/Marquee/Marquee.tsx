@@ -1,9 +1,11 @@
 import { ReactNode, FC } from "react";
 import { motion } from "framer-motion";
 import style from "./Marquee.module.css";
+import classNames from "classnames";
 
 interface Props {
   children: ReactNode[];
+  variant?: "primary" | "secondary";
 }
 
 const marqueeVariants = {
@@ -20,9 +22,12 @@ const marqueeVariants = {
   },
 };
 
-const Marquee: FC<Props> = ({ children }) => {
+const Marquee: FC<Props> = ({ children, variant = "primary" }) => {
+  const rootClassName = classNames(style.root, {
+    [style.secondary]: variant === "secondary",
+  });
   return (
-    <div className={style.root}>
+    <div className={rootClassName}>
       <motion.div
         className='track'
         variants={marqueeVariants}
