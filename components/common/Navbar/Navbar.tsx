@@ -1,11 +1,28 @@
 import { FC } from "react";
 import { Container } from "@components/ui";
+import Link from "next/link";
+import style from "./Navbar.module.css";
 
 const Navbar: FC = () => {
   return (
     <Container>
-      <div className='flex flex-row md:py-6'>
-        <h1>TEST</h1>
+      <div className={style.root}>
+        <div className='flex flex-1 items-center'>
+          <Link href='/' className={style.logo}>
+            Home
+          </Link>
+          <nav className='ml-6 space-x-6'>
+            <Link href='/' className={style.link}>
+              All
+            </Link>
+            <Link href='/' className={style.logo}>
+              Dice
+            </Link>
+            <Link href='/' className={style.logo}>
+              Notebooks
+            </Link>
+          </nav>
+        </div>
       </div>
     </Container>
   );
