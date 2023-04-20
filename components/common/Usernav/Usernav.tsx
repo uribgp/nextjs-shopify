@@ -11,7 +11,7 @@ const Usernav: FC = () => {
           <Cart />
         </li>
         <li className={style.item}>
-          <Link href='/'>
+          <Link href='/wishlist'>
             <Heart />
           </Link>
         </li>

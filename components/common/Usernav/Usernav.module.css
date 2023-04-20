@@ -7,6 +7,6 @@
     flex items-center outline-none text-primary;
 
     &:hover {
-        @apply text-accents-6 transition scale-110 duration-500;
+        @apply text-accents-6 scale-110;
     }
 }
