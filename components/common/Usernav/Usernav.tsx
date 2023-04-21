@@ -5,13 +5,13 @@ import { Bag as Cart, Heart } from "@components/icons";
 import { useUI } from "@components/ui/context";
 
 const Usernav: FC = () => {
-  const ui = useUI();
+  const { openSidebar } = useUI();
 
   return (
     <nav>
       <ul className={style.list}>
         <li className={style.item}>
-          <Cart onClick={ui.setIsSidebarOpen} />
+          <Cart onClick={openSidebar} />
         </li>
         <li className={style.item}>
           <Link href='/wishlist'>

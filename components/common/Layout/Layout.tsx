@@ -10,12 +10,12 @@ type LayoutProps = {
 };
 
 const Layout: FC<LayoutProps> = ({ children }) => {
-  const ui = useUI();
+  const { isSidebarOpen, closeSidebar } = useUI();
 
   return (
     <div className={style.root}>
       <Navbar />
-      <Sidebar isOpen={ui.isSidebarOpen}>
+      <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar}>
         <CartSidebar />
       </Sidebar>
       <main className='fit'>{children}</main>
