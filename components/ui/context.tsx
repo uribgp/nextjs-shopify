@@ -1,6 +1,6 @@
-import { FC, createContext, useContext } from "react";
+import { FC, createContext, useContext, useState } from "react";
 
-const UIContext = createContext<object>({
+const UIContext = createContext<{ [key: string]: any }>({
   uiState: "defaultState",
 });
 
@@ -9,11 +9,12 @@ interface UIProviderProps {
 }
 
 export const UIProvider: FC<UIProviderProps> = ({ children }) => {
-  return (
-    <UIContext.Provider value={{ uiState: "someState" }}>
-      {children}
-    </UIContext.Provider>
-  );
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const uiState = {
+    isSidebarOpen,
+    setIsSidebarOpen,
+  };
+  return <UIContext.Provider value={uiState}>{children}</UIContext.Provider>;
 };
 
 export const useUI = () => {
