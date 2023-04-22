@@ -4,6 +4,8 @@ import {
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from "next";
+import { getConfig } from "@framework/api/config";
+import getAllProductsPaths from "@framework/product/get-all-products-paths";
 
 export default function ProductSlug({
   product,
@@ -12,12 +14,10 @@ export default function ProductSlug({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const config = getConfig();
+  const { products } = await getAllProductsPaths(config);
   return {
-    paths: [
-      { params: { slug: "notebook-1" } },
-      { params: { slug: "notebook-2" } },
-      { params: { slug: "notebook-3" } },
-    ],
+    paths: products.map((product) => ({ params: { slug: product.slug } })),
     fallback: false,
   };
 };
