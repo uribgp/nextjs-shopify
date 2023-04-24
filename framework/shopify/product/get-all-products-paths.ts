@@ -1,16 +1,19 @@
 import { ApiConfig } from "@common/types/api"
 import { Product } from "@common/types/product"
+import { ProductConnection } from "@framework/schema"
+import getAllProductsPathsQuery from "@framework/utils/queries/get-all-products-paths"
 
 type ReturnType = {
     products: Pick<Product, "slug">[]
 }
 
 const getAllProductsPaths = async (config: ApiConfig): Promise<ReturnType> => {
-    return   {  products: [
-        {  slug: "notebook-1" } ,
-        {  slug: "notebook-2" } ,
-        {  slug: "notebook-3" } ,
-      ],
-}}
+    const { data } = await config.fetch<{products: ProductConnection}>({query: getAllProductsPathsQuery, url: config.apiUrl})
+    const products = data.products.edges.map(({node: {handle}}) => {
+        return { slug: handle }
+    })
+
+return { products }
+}
 
 export default getAllProductsPaths
