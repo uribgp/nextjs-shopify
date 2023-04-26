@@ -8,7 +8,7 @@ type FetcherParams = {
 
 type FetcherResult<T> = {data: T}
 
-const fetchApi = async <T>({ url, query 
+const fetchApi = async <T>({ url, query, variables 
 }: ApiFetcherOptions): Promise<ApiFetcherResults<T>> => {
 
    const res = await fetch(url, {
@@ -17,7 +17,7 @@ const fetchApi = async <T>({ url, query
             "Content-Type": "application/json",
             "X-Shopify-Access-Token": apiKey
         },
-        body: JSON.stringify({query})
+        body: JSON.stringify({query, variables})
     })
 
     const {data, errors} = await res.json()
