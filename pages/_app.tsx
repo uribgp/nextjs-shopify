@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import { FC, ReactNode } from "react";
 import "@assets/main.css";
+import "keen-slider/keen-slider.min.css";
 import { UIProvider } from "@components/ui/context";
 
 interface LayoutProps {
