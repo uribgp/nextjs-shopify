@@ -9,8 +9,8 @@ export type Choices = {
 
 export function getVariant(product: Product, choices: Choices ) {
 
-    const variant = product.variants.find((variant) => {
-        const matchingChoice = variant.options.every((variantOption) => {
+    return product.variants.find((variant) => {
+        return variant.options.every((variantOption) => {
             const optionName = variantOption.displayName.toLowerCase()
             
             if (optionName in choices) {
@@ -20,7 +20,5 @@ export function getVariant(product: Product, choices: Choices ) {
             }
             return false
         })
-        return matchingChoice
     })
-    return variant
 }
