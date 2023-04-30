@@ -11,7 +11,6 @@ import { ProductView } from "@components/product";
 export default function ProductSlug({
   product,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(JSON.stringify(product, null, 2));
   return <>{product && <ProductView product={product} />}</>;
 }
 
