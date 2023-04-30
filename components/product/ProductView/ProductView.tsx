@@ -53,21 +53,28 @@ const ProductView: FC<Props> = ({ product }) => {
               <div key={option.id} className='pb-4'>
                 <h2 className='uppercase font-medium'>{option.displayName}</h2>
                 <div className='flex flex-row py-4'>
-                  {option.values.map((optionValue) => (
-                    <Swatch
-                      key={`${option.id}-${optionValue.label}`}
-                      label={optionValue.label}
-                      color={optionValue.hexColor}
-                      variant={option.displayName}
-                      onClick={() =>
-                        setChoices({
-                          ...choices,
-                          [option.displayName.toLowerCase()]:
-                            optionValue.label.toLowerCase(),
-                        })
-                      }
-                    />
-                  ))}
+                  {option.values.map((optionValue) => {
+                    const activeChoice =
+                      choices[option.displayName.toLowerCase()];
+                    return (
+                      <Swatch
+                        key={`${option.id}-${optionValue.label}`}
+                        label={optionValue.label}
+                        color={optionValue.hexColor}
+                        variant={option.displayName}
+                        active={
+                          optionValue.label.toLowerCase() === activeChoice
+                        }
+                        onClick={() =>
+                          setChoices({
+                            ...choices,
+                            [option.displayName.toLowerCase()]:
+                              optionValue.label.toLowerCase(),
+                          })
+                        }
+                      />
+                    );
+                  })}
                 </div>
               </div>
             ))}
