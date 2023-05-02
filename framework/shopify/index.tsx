@@ -12,9 +12,7 @@ interface ShopifyApiProviderProps {
 
 export const ApiProvider = ({ children }: ShopifyApiProviderProps) => {
   return (
-    <CommonApiProvider config={{ ...config, testKey: "TEST" }}>
-      {children}
-    </CommonApiProvider>
+    <CommonApiProvider config={{ ...config }}>{children}</CommonApiProvider>
   );
 };
 
