@@ -16,7 +16,7 @@ interface Props {
 const ProductView: FC<Props> = ({ product }) => {
   const [choices, setChoices] = useState<Choices>({});
   const { openSidebar } = useUI();
-  const addItem = useAddItem;
+  const addItem = useAddItem();
 
   const variant = getVariant(product, choices);
 
