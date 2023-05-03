@@ -8,7 +8,7 @@ type ReturnType = {
 }
 
 const getAllProducts = async (config: ApiConfig): Promise<Product[]> => {
-    const { data } = await config.fetch<ReturnType>({ url: config.apiUrl, query: getAllProductsQuery})
+    const { data } = await config.fetch<ReturnType>({ query: getAllProductsQuery})
     
     const products = data.products.edges.map(({node: product}) => {
         const normalizedProduct = normalizeProduct(product)

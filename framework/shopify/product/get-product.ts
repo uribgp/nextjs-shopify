@@ -16,7 +16,7 @@ const getProduct = async (options: {
     variables: Variables
 }): Promise<ReturnType> => {
     const { config, variables } = options
-    const { data } = await config.fetch<FetchType>({query: getProductQuery, url: config.apiUrl, variables})
+    const { data } = await config.fetch<FetchType>({query: getProductQuery, variables})
     const { productByHandle } = data
 
 

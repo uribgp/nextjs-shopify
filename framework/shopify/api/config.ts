@@ -1,8 +1,6 @@
 import { fetchApi } from "../utils"
 import { ApiConfig } from "@common/types/api"
 
-const storeName = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN 
-
 class Config {
     private config: ApiConfig
 
@@ -16,7 +14,6 @@ class Config {
 }
 
 const configWrapper = new Config(({
-    apiUrl: storeName,
     fetch: fetchApi
 }))
 

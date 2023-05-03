@@ -1,5 +1,5 @@
 import { ApiFetcherOptions, ApiFetcherResults } from "@framework/api/api"
-
+import { API_URL } from "@framework/const"
 const apiKey = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN
 
 type FetcherParams = { 
@@ -8,10 +8,10 @@ type FetcherParams = {
 
 type FetcherResult<T> = {data: T}
 
-const fetchApi = async <T>({ url, query, variables 
+const fetchApi = async <T>({ query, variables 
 }: ApiFetcherOptions): Promise<ApiFetcherResults<T>> => {
 
-   const res = await fetch(url, {
+   const res = await fetch(API_URL!, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

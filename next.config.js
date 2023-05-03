@@ -7,7 +7,7 @@ const nextConfig = withFrameworkConfig({
     domains: ["cdn.shopify.com"],
   },
   framework: {
-    name: "shopify",
+    name: process.env.NEXT_PUBLIC_FRAMEWORK,
   },
   reactStrictMode: true,
 });
