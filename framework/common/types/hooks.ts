@@ -11,6 +11,7 @@ export type MutationHookContext = {
 }
 
 export type MutationHook = {
+    fetcherOptions: ApiFetcherOptions
     fetcher: (context: FetcherHookContext) => any,
     useHook(context: MutationHookContext): (input: any) => any
 }
