@@ -15,3 +15,10 @@ export type MutationHook = {
     fetcher: (context: FetcherHookContext) => any,
     useHook(context: MutationHookContext): (input: any) => any
 }
+
+export interface ApiHooks {
+    cart: {
+        useAddItem: any
+        useCart: any
+    }
+}
