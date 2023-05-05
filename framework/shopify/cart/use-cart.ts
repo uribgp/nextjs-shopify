@@ -11,8 +11,8 @@ export const handler = {
       data: "cart ready!!!"
     }
   },
-  useHook: ({fetch}: any) => {
-    const data = fetch()
+  useHook: ({useData}: any) => {
+    const data = useData()
     return {
       data
     }
