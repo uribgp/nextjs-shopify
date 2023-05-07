@@ -6,10 +6,9 @@ export const handler = {
   fetchOptions: {
     query: ""
   },
-  fetcher() {
-    return {
-      data: "cart ready!!!"
-    }
+  async fetcher({fetch, options}) {
+    const data = await fetch(...options)
+    return { data }
   },
   useHook: ({useData}: any) => {
     const data = useData()
