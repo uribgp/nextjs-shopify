@@ -5,9 +5,9 @@ import { useApiProvider } from "@common"
 
 const useCart = () => {
   const hook = useHook((hooks: ApiHooks) => hooks.cart.useCart)
-  const checkoutCookie = useApiProvider()
+  const { checkoutCookie } = useApiProvider()
 
-  const fetcherWrapper: typeof hook.fetcher = (context) => {
+  const fetcherWrapper: typeof hook.fetcher = (context: any) => {
     context.input.checkoutId = Cookies.get(checkoutCookie)
     return hook.fetcher(context)
   }

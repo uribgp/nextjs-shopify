@@ -54,7 +54,7 @@ export const useSWRHook = (hook: any) => {
 
     return hook.useHook({
       useData() {
-        const { data } = useData(hook, fetcher)
+        const data = useData(hook, fetcher)
 
         return data
       }
