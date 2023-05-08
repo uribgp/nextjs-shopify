@@ -6,7 +6,7 @@ export const handler = {
   fetchOptions: {
     query: ""
   },
-  async fetcher({fetch, options}) {
+  async fetcher({fetch, options, input: checkoutId}) {
     const data = await fetch(...options)
     return { data }
   },
