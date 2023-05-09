@@ -14,7 +14,7 @@ export const handler = {
       const { data } = await fetch({...options})
       checkout = data.node
     } else {
-      checkout = await createCheckout()
+      checkout = await createCheckout(fetch)
     }
 
     return checkout
