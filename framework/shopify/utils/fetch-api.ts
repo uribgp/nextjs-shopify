@@ -1,6 +1,5 @@
 import { ApiFetcherOptions, ApiFetcherResults } from "@framework/api/api"
-import { API_URL } from "@framework/const"
-const apiKey = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN
+import { API_URL, STOREFRONT_TOKEN } from "@framework/const"
 
 type FetcherParams = { 
     query: string
@@ -15,7 +14,7 @@ const fetchApi = async <T>({ query, variables
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "X-Shopify-Access-Token": apiKey
+            "X-Shopify-Access-Token": STOREFRONT_TOKEN
         },
         body: JSON.stringify({query, variables})
     })
