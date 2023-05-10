@@ -3,6 +3,7 @@ import { Bag, Cross } from "@components/icons";
 import cn from "classnames";
 import { useUI } from "@components/ui/context";
 import useCart from "@framework/cart/use-cart";
+import { Button } from "@components/ui";
 
 const CartSidebar: FC = () => {
   const { closeSidebar } = useUI();
@@ -72,13 +73,9 @@ const CartSidebar: FC = () => {
                 <span>120$</span>
               </div>
             </div>
-            <button
-              onClick={() => {
-                alert("Going to checkout!");
-              }}
-            >
+            <Button Component='a' href='/api/checkout'>
               Proceed to Checkout
-            </button>
+            </Button>
           </div>
         </>
       )}
