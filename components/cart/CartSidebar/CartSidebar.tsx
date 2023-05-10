@@ -8,8 +8,8 @@ import { Button } from "@components/ui";
 const CartSidebar: FC = () => {
   const { closeSidebar } = useUI();
   const isEmpty = true;
-  const cart = useCart();
-  console.log(cart);
+  const { data } = useCart();
+  console.log(data);
 
   const rootClass = cn("h-full flex flex-col", {
     "bg-secondary text-secondary": isEmpty,
