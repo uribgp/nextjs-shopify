@@ -7,8 +7,11 @@ export type UseAddItem<
 
 
 const useAddItem: UseAddItem = () => {
-    const hook = useHook((hooks) => hooks.cart.useAddItem)
+    const hook = useHook((hooks) => {
+      return hooks.cart.useAddItem
+    })
+  
     return useMutationHook({...hook})()
-}
+  }
 
 export default useAddItem
