@@ -5,6 +5,7 @@ import { CheckoutLineItemsAddPayload } from "@framework/schema"
 import { checkoutToCart, getCheckoutId } from "@framework/utils"
 import { checkoutLineItemsAddMutation } from "@framework/utils/mutations"
 import { Cart } from "@common/types/cart"
+import useCart from "./use-cart"
 
 
 export default useAddItem as UseAddItem<typeof handler>
@@ -43,8 +44,10 @@ export type AddItemHookDescriptor = {
         return cart
     },
     useHook: ({fetch}) => () => {
+        const { mutate: updateCart } = useCart()
         return async (input) => {
             const response = await fetch(input)
+            await updateCart(response, false)
             return response
         }
     }
