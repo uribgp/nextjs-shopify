@@ -42,7 +42,8 @@ export type HookFetcherOptions = {
 export interface ApiHooks {
     cart: {
         useAddItem: any
-        useCart: any
+        useCart: SWRHook
+        useRemoveItem: MutationHook
     }
 }
 
