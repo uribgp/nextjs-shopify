@@ -2,8 +2,13 @@ import {
     useHook,
     useMutationHook
   } from "@common/utils/use-hook"
+  import { MutationHook } from "@common/types/hooks"
   
-  const useRemoveItem = () => {
+  export type UseRemoveItem<
+  H extends MutationHook = MutationHook<any>
+> = ReturnType<H["useHook"]>
+
+const useRemoveItem: UseRemoveItem = () => {
     const hook = useHook((hooks) => {
       return hooks.cart.useRemoveItem
     })
@@ -12,4 +17,3 @@ import {
   }
   
   export default useRemoveItem
-  
