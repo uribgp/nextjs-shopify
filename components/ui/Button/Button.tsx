@@ -12,12 +12,23 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode | ReactNode[];
   Component?: string | ComponentType<HTMLAttributes<HTMLElement>>;
   href?: string;
+  isLoading?: boolean;
 }
 
-const Button: FC<Props> = ({ children, className, ...rest }) => {
+const Button: FC<Props> = ({
+  children,
+  className,
+  isLoading = false,
+  ...rest
+}) => {
+  const rootClassName = cn(style.root, className, {
+    [style.loading]: isLoading,
+  });
+
   return (
-    <button className={cn(style.root, className)} type='button' {...rest}>
+    <button className={rootClassName} type='button' {...rest}>
       {children}
+      {isLoading && <div>Loading...</div>}
     </button>
   );
 };

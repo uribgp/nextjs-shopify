@@ -20,12 +20,12 @@ const CartSidebar: FC = () => {
       <header className='px-4 pt-6 pb-4 sm:px-6'>
         <div className='flex items-start justify-between space-x-3'>
           <div className='h-7 flex items-center'>
-            <button
+            <Button
               onClick={closeSidebar}
               className='hover:text-gray-500 transition ease-in-out duration-150'
             >
               <Cross className='h-6 w-6' />
-            </button>
+            </Button>
           </div>
         </div>
       </header>
