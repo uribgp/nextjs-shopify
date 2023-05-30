@@ -1,4 +1,4 @@
-import { ApiFetcherOptions, ApiFetcherResults } from "@framework/api/api"
+import { ApiFetcherOptions, ApiFetcherResults } from "@common/types/api"
 import { API_URL, STOREFRONT_TOKEN } from "@framework/const"
 
 type FetcherParams = { 
