@@ -25,7 +25,7 @@ const Usernav: FC = () => {
           )}
         </li>
         <li className={style.item}>
-          <Link href='/wishlist'>
+          <Link href='/wishlist' aria-label='Link to Wishlist'>
             <Heart />
           </Link>
         </li>
