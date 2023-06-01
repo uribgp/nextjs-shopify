@@ -17,12 +17,12 @@ export default function Home({
       </Grid>
       <Hero headline='Hello' description='description' />
       <Marquee>
-        {products.slice(0, 3).map((product) => (
+        {products.slice(0, 6).map((product) => (
           <ProductCard key={product.id} variant='slim' product={product} />
         ))}
       </Marquee>
       <Grid layout='B'>
-        {products.slice(3, 6).map((product) => (
+        {products.slice(0, 6).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </Grid>
