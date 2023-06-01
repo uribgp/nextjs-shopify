@@ -14,7 +14,7 @@ const fetchApi = async <T>({ query, variables
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "X-Shopify-Access-Token": STOREFRONT_TOKEN
+            "X-Shopify-Storefront-Access-Token": STOREFRONT_TOKEN
         },
         body: JSON.stringify({query, variables})
     })
@@ -22,7 +22,9 @@ const fetchApi = async <T>({ query, variables
     const {data, errors} = await res.json()
 
     if (errors){
-        throw new Error(errors[0].message ?? errors.message)
+        console.log(errors)
+        console.log(STOREFRONT_TOKEN)
+        throw new Error((errors[0].message || errors[0].extensions?.code) ?? errors.message)
     }
 
     return { data }

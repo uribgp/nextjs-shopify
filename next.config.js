@@ -8,6 +8,14 @@ module.exports = withFrameworkConfig({
     locales: ["en-US", "es"],
     defaultLocale: "en-US",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+      },
+    ],
+  },
 });
 
 console.log("next.config.js", JSON.stringify(module.exports, null, 2));

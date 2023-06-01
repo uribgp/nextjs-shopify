@@ -49,7 +49,9 @@ export const handler: SWRHook<UseCartHookDescriptor> = {
     return cart
   },
   useHook: ({useData}) => () => {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
     const { checkoutCookie } = useApiProvider()
+            // eslint-disable-next-line react-hooks/rules-of-hooks
     const result = useData({
       swrOptions: {
         revalidateOnFocus: false
@@ -59,12 +61,11 @@ export const handler: SWRHook<UseCartHookDescriptor> = {
     if (result.data?.completedAt){
       Cookies.remove(checkoutCookie)
     }
-    
-    return useMemo(() => {      
+    // return useMemo(() => {      
       return {
         ...result,
         isEmpty: (result.data?.lineItems.length ?? 0) <= 0
       }
-    }, [result])
+    // }, [result])
   }
 }

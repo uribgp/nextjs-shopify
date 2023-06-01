@@ -44,6 +44,7 @@ export type AddItemHookDescriptor = {
         return cart
     },
     useHook: ({fetch}) => () => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const { mutate: updateCart } = useCart()
         return async (input) => {
           const response = await fetch(input)

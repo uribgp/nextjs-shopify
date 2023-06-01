@@ -40,6 +40,7 @@ export type RemoveItemDescriptor = {
 
   },
   useHook: ({fetch}) => () => {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
     const { mutate: updateCart } = useCart()
 
     return async (input) => {

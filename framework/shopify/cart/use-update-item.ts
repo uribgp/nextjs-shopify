@@ -49,6 +49,7 @@ export const handler: MutationHook<UpdateItemDescriptor> = {
     return cart
   },
   useHook: ({ fetch }) => () => {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
     const { mutate: updateCart } = useCart()
 
     return async (input) => {
