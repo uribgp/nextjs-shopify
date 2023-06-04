@@ -16,10 +16,10 @@ const Navbar: FC = () => {
             <Link href='/' className={style.link}>
               All
             </Link>
-            <Link href='/' className={style.logo}>
+            <Link href='/collections/dice' className={style.link}>
               Dice
             </Link>
-            <Link href='/' className={style.logo}>
+            <Link href='/collections/notebooks' className={style.link}>
               Notebooks
             </Link>
           </nav>

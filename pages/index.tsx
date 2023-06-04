@@ -25,7 +25,7 @@ export default function Home({
         ))}
       </Marquee>
       <Grid layout='B'>
-        {products.slice(0, 6).map((product) => (
+        {products.slice(3, 6).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </Grid>
