@@ -15,7 +15,10 @@ export default function Home({
           <ProductCard key={product.id} product={product} />
         ))}
       </Grid>
-      <Hero headline='Hello' description='description' />
+      <Hero
+        headline='Notebooks and Dice'
+        description='Notebooks are great for writing things in. Dice are great for rolling numbers.'
+      />
       <Marquee>
         {products.slice(0, 6).map((product) => (
           <ProductCard key={product.id} variant='slim' product={product} />
