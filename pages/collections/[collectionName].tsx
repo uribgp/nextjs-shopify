@@ -1,38 +1,46 @@
 import { Layout } from "@components/common";
 import { useRouter } from "next/router";
-import {
-  GetStaticPaths,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-} from "next";
+import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import {
   getProductsByCollection,
   getAllCollectionsPaths,
 } from "@framework/product";
 import { getConfig } from "@framework/api/config";
+import { Grid, Hero } from "@components/ui";
+import { ProductCard } from "@components/product";
 
 export default function CollectionPage({
   products,
+  collectionName,
+  description,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
-  const { collectionName } = router.query;
-  console.log(products);
 
   return (
     <>
-      <>{collectionName} Page</>
+      <>
+        <Hero headline={collectionName} description={description}></Hero>
+        <Grid>
+          {products.slice(0, 3).map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </Grid>
+      </>
     </>
   );
 }
 
-// export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticPaths: any = async () => {
   const config = getConfig();
   const { collections } = await getAllCollectionsPaths(config);
 
   const paths = collections.map(({ node }) => ({
-    params: { collectionName: node.handle },
+    params: {
+      collectionName: node.handle,
+      description: node.description,
+    },
   }));
+
   return {
     paths,
     fallback: false,
@@ -47,10 +55,17 @@ export const getStaticProps = async ({
     config,
     variables: { collectionName: params?.collectionName },
   });
-  return {
-    props: { products },
 
-    // Revalidate searches for new products every 4 hours
+  const { collections } = await getAllCollectionsPaths(config);
+  const { node } =
+    collections.find((col) => col.node.handle === params?.collectionName) || {};
+
+  return {
+    props: {
+      products,
+      collectionName: node?.handle || "",
+      description: node?.description || "",
+    },
     revalidate: 4 * 60 * 60,
   };
 };

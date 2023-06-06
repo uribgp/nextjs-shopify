@@ -1,6 +1,7 @@
 export type Collection = {
     node: {
       handle: string;
+      description?: string;
     };
   };
   

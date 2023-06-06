@@ -14,8 +14,6 @@ const getProductsByCollection = async (options: {
     const { config, variables } = options
     // const { data } = await config.fetch<ReturnType>({ query: getProductsByCollectionQuery, variables})
     const { data } = await config.fetch<any>({ query: getProductsByCollectionQuery, variables})
-
-    console.log(data)
     const edges = data.collectionByHandle.products.edges;
 
     const products = edges.map(({ node: product }) => {
@@ -24,12 +22,6 @@ const getProductsByCollection = async (options: {
     }) ?? [];
   
     return products;
-    // const products = data.products.edges.map(({node: product}) => {
-    //     const normalizedProduct = normalizeProduct(product)
-    //     return normalizedProduct
-    // }) ?? []
-    // return products
-    return
 }
 
 export default getProductsByCollection

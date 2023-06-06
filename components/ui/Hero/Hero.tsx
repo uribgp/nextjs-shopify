@@ -16,9 +16,9 @@ const Hero: FC<Props> = ({ headline, description }) => {
           <h2 className={style.headline}>{headline}</h2>
           <div className='flex-1 max-w-4xl'>
             <p className={style.description}>{description}</p>
-            <Link className={style.link} href='/'>
+            {/* <Link className={style.link} href='/'>
               Read it here
-            </Link>
+            </Link> */}
           </div>
         </div>
       </Container>
